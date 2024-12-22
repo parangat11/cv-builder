@@ -1,0 +1,9 @@
+.header {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    background-color: var(--form-theme);
+    width: 100vw;
+}

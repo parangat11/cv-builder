@@ -1,13 +1,16 @@
-export default function Education() {
+export default function Education(props) {
     return (
-        <form>
-            <label>School:</label>
-            <input type="text" />
-            <label htmlFor="">Field of Study:</label>
-            <input type="text" />
-            <label htmlFor="">Graduation year:</label>
-            <input type="text" />
-            <Augmentable text="Achievements" />
-        </form>
+        <div className="info-container">
+            <div className="details">Education</div>
+            <form>
+                <label>School:</label>
+                <input type="text" />
+                <label htmlFor="">Field of Study:</label>
+                <input type="text" />
+                <label htmlFor="">Graduation year:</label>
+                <input type="text" />
+                {/* <Augmentable text="Achievements" /> */}
+            </form>
+        </div>
     )
 }

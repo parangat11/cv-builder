@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Information from './components/Information.jsx'
+import Header from './components/Header.jsx';
 import './App.css'
 
 function App() {
@@ -14,12 +15,10 @@ function App() {
     )
   }
   return (
-    <>
-      {showCV ? <CV information={information} /> : <Information handleChange={handleChange} />}
-      <button onClick={() => setShowCV(!showCV)}>
-        {showCV ? <>Edit</> : <>Generate</>}
-      </button>
-    </>
+    <div className="app">
+      <Header />
+      {showCV ? <CV information={information} handleSwitch={setShowCV} /> : <Information handleChange={handleChange} handleSwitch={setShowCV} />}
+    </div>
   )
 }
 
