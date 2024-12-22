@@ -3,16 +3,14 @@ import GeneralInfo from "./GeneralInfo.jsx"
 // import Skills from "./Skills"
 // import Experience from "./Experience"
 
-export default function Information() {
-    function handleGenChange(e) {
-        console.log(e.target.value)
-    }
+export default function Information(props) {
+    
     return (
         <>
-            <GeneralInfo handleGenChange={handleGenChange}/>
-            {/* <Education />
-            <Skills />
-            <Experience /> */}
+            <GeneralInfo handleChange={props.handleChange} />
+            {/* <Education handleChange={props.handleChange} />
+            <Skills handleChange={props.handleChange} />
+            <Experience handleChange={props.handleChange} /> */}
         </>
     )
 }
