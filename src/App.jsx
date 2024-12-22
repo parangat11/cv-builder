@@ -1,11 +1,23 @@
 import { useState } from 'react'
 import Information from './components/Information.jsx'
-import Header from './components/Header.jsx';
+import Header from './components/Header.jsx'
+import CV from './components/CV.jsx'
 import './App.css'
+
+const sampleObject = {
+  firstName: null,
+  lastName: null,
+  permaAddress: null,
+  phoneNumber: null,
+  email: null,
+}
 
 function App() {
   const [showCV, setShowCV] = useState(false);
-  const [information, setInformation] = useState({});
+  const [information, setInformation] = useState(sampleObject);
+  function handleSwitch() {
+    setShowCV(!showCV);
+  }
   function handleChange(e) {
     setInformation(
       {
@@ -17,7 +29,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      {showCV ? <CV information={information} handleSwitch={setShowCV} /> : <Information handleChange={handleChange} handleSwitch={setShowCV} />}
+      {showCV ? <CV info={information} handleSwitch={handleSwitch} /> : <Information handleChange={handleChange} handleSwitch={handleSwitch} info={information}/>}
     </div>
   )
 }

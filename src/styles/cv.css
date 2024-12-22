@@ -1,0 +1,55 @@
+.cv-container {
+    display: grid;
+    width: 100vw;
+    grid-template-rows: 10fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(200, 251, 234);
+}
+
+.cv {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    height: 1000px;
+    margin-top: 10px;
+    width: 800px;
+    background-color: white;
+}
+
+#cv-btn {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.general-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    background-color:rgb(85, 153, 202);
+}
+
+.person-name {
+    font-size: 2.6rem;
+    font-weight: bold;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    padding-top: 5px;
+}
+
+.icons {
+    width: 20px;
+    height: auto;
+}
+
+.address > .icons {
+    width: 17px;
+    height: auto;
+}
