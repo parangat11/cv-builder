@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import "../styles/cv.css"
 
 export default function CV(props) {
@@ -6,6 +7,7 @@ export default function CV(props) {
     const mail = props.info.email;
     const phone = props.info.phoneNumber;
     const address = props.info.permaAddress;
+    console.log(props.info);
     return (
         <div className="cv-container">
             <div className="cv">
@@ -18,6 +20,13 @@ export default function CV(props) {
                         <div>|</div>
                         <div className="address"><img className="icons" src="/src/assets/address.svg" alt="" /> {address}</div>
                     </div>
+                </div>
+                <div className="education">
+                    {props.info.eduAugment.map(augment =>
+                        <Fragment key={augment["id"]}>
+                            <h1>{augment["School"]}</h1>
+                        </Fragment>
+                    )}
                 </div>
             </div>
             <button id="cv-btn" onClick={props.handleSwitch}>

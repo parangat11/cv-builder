@@ -17,7 +17,7 @@ export default function Information(props) {
             </div>
             <div className="selected">
                 {selectedIdx === 0 && <GeneralInfo handleChange={props.handleChange} info={props.info}/>}
-                {selectedIdx === 1 && <Education handleChange={props.handleChange} />}
+                {selectedIdx === 1 && <Education info={props.info} handleChange={props.handleChange} />}
                 {/* <Skills handleChange={props.handleChange} />
                 <Experience handleChange={props.handleChange} /> */}
             </div>

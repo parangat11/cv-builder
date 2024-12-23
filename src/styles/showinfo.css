@@ -1,0 +1,11 @@
+.placard {
+    display: flex;
+    font-size: 1.8rem;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.placard button {
+    font-size: 1.5rem;
+}

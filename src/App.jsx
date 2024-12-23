@@ -5,11 +5,15 @@ import CV from './components/CV.jsx'
 import './App.css'
 
 const sampleObject = {
-  firstName: null,
-  lastName: null,
-  permaAddress: null,
-  phoneNumber: null,
-  email: null,
+  firstName: '',
+  lastName: '',
+  permaAddress: '',
+  phoneNumber: '',
+  email: '',
+
+  eduAugment: [],
+  skillsAugment: [],
+  
 }
 
 function App() {
