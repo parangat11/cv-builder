@@ -19,6 +19,7 @@ const sampleObject = {
 function App() {
   const [showCV, setShowCV] = useState(false);
   const [information, setInformation] = useState(sampleObject);
+  console.log(information);
   function handleSwitch() {
     setShowCV(!showCV);
   }
@@ -30,10 +31,16 @@ function App() {
       }
     )
   }
+  function changeAugmentables(type, newAugmentables) {
+    setInformation({
+      ...information,
+      [type]: newAugmentables,
+    })
+  }
   return (
     <div className="app">
       <Header />
-      {showCV ? <CV info={information} handleSwitch={handleSwitch} /> : <Information handleChange={handleChange} handleSwitch={handleSwitch} info={information}/>}
+      {showCV ? <CV info={information} handleSwitch={handleSwitch} /> : <Information changeAug={changeAugmentables} handleChange={handleChange} handleSwitch={handleSwitch} setInfo={setInformation} info={information}/>}
     </div>
   )
 }

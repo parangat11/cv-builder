@@ -3,10 +3,19 @@ import Augmentable from "./Augmentable";
 import ShowInfo from "./ShowInfo";
 
 export default function Education(props) {
-    const [augmentables, setAugmentables] = useState([]);
+    const augmentables = props.info.eduAugment;
     const [isAddingInfo, setIsAddingInfo] = useState(false);
+    const [toEdit, setToEdit] = useState(null);
     function handleEdit(id) {
-        ;
+        const newAugmentables = [];
+        for(let i = 0; i < augmentables.length; i++) {
+            if(augmentables[i].id === id) {
+                setToEdit(augmentables[i]);
+                continue;
+            }
+            newAugmentables.push(augmentables[i]);
+        }
+        props.changeAug("eduAugment", newAugmentables);
     }
     function handleDelete(id) {
         const newAugmentables = [];
@@ -15,11 +24,7 @@ export default function Education(props) {
                 newAugmentables.push(augmentables[i]);
             }
         }
-        setAugmentables(() => {
-            props.info.eduAugment = newAugmentables;
-            console.log(props.info)
-            return newAugmentables;
-        });
+        props.changeAug("eduAugment", newAugmentables);
     }
     const obj = {
         association: "School",
@@ -34,7 +39,7 @@ export default function Education(props) {
                 {augmentables.map(augmentable => 
                     <ShowInfo handleDelete={handleDelete} handleEdit={handleEdit} key={augmentable.id} augmentable={augmentable} obj={obj} />
                 )}
-                <Augmentable obj={obj} info={props.info} association="school" work="fieldOfStudy" hasDescription={false} setAugmentables={setAugmentables} augmentables={augmentables} isOpen={isAddingInfo} toggleForm={setIsAddingInfo}/>
+                <Augmentable changeAug={props.changeAug} obj={obj} toEdit={toEdit} setToEdit={setToEdit} info={props.info} association="school" work="fieldOfStudy" hasDescription={false} augmentables={augmentables} isOpen={isAddingInfo} toggleForm={setIsAddingInfo}/>
             </div>
             
         </div>

@@ -16,8 +16,8 @@ export default function Information(props) {
                 <div onClick={() => setSelectedIdx(3)}>Experience</div>
             </div>
             <div className="selected">
-                {selectedIdx === 0 && <GeneralInfo handleChange={props.handleChange} info={props.info}/>}
-                {selectedIdx === 1 && <Education info={props.info} handleChange={props.handleChange} />}
+                {selectedIdx === 0 && <GeneralInfo handleChange={props.handleChange} setInfo={props.setInfo} info={props.info}/>}
+                {selectedIdx === 1 && <Education changeAug={props.changeAug} info={props.info} setInfo={props.setInfo} handleChange={props.handleChange} />}
                 {/* <Skills handleChange={props.handleChange} />
                 <Experience handleChange={props.handleChange} /> */}
             </div>

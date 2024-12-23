@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Augmentable(props) {
     const [augmentable, setAugmentable] = useState({});
+    useEffect(() => {
+        if(props.toEdit) {
+            setAugmentable(() => props.toEdit);
+            props.toggleForm(true);
+        }
+        else {
+            setAugmentable({});
+        }
+    }, [props.toEdit])
     function handleAdding() {
         props.toggleForm(!props.isOpen);
     }
@@ -19,30 +28,34 @@ export default function Augmentable(props) {
             id: augmentable.id || crypto.randomUUID()
         }
         if(type==="save") {
-            props.setAugmentables(() => {
-                const newAugmentables = [...props.augmentables, newAugmentable];
-                props.info.eduAugment = newAugmentables;
-                return newAugmentables;
-            });
+            const newAugmentables = [...props.augmentables, newAugmentable];
+            props.changeAug("eduAugment", newAugmentables)
+            props.setToEdit(null);
             setAugmentable({});
             props.toggleForm(!props.isOpen);
         }
         else {
+            if(props.toEdit) {
+                const newAugmentables = [...props.augmentables, augmentable];
+                props.changeAug("eduAugment", newAugmentables)
+                props.setToEdit(null);
+                setAugmentable({});
+            }
             props.toggleForm(!props.isOpen);
         }
     }
     return (
         <>
             {props.isOpen ?
-            <form onChange={handleFormChange}>
-                <label>School:</label>
-                <input type="text" name="association" defaultValue={augmentable[props.obj.association]}/>
-                <label htmlFor="">Field of Study:</label>
-                <input type="text" name="work" defaultValue={augmentable[props.obj.work]} />
+            <form>
+                <label>{props.obj.association}:</label>
+                <input type="text" onChange={handleFormChange} name="association" value={augmentable[props.obj.association] || ''}/>
+                <label htmlFor="">{props.obj.work}:</label>
+                <input type="text" onChange={handleFormChange} name="work" value={augmentable[props.obj.work] || ''} />
                 <label htmlFor="">Start Date:</label>
-                <input type="text" name="startDate" defaultValue={augmentable[props.obj.startDate]} />
+                <input type="text" onChange={handleFormChange} name="startDate" value={augmentable[props.obj.startDate] || ''} />
                 <label htmlFor="" >End Date</label>
-                <input type="text" name="endDate" defaultValue={augmentable[props.obj.endDate]} />
+                <input type="text" onChange={handleFormChange} name="endDate" value={augmentable[props.obj.endDate] || ''} />
                 <div className="form-btns">
                     <button type="submit" onClick={(e) => handleChange(e, "save")}>Save</button>
                     <button type="generic" onClick={(e) => handleChange(e, "generic")}>Cancel</button>

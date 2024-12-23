@@ -21,13 +21,18 @@ export default function CV(props) {
                         <div className="address"><img className="icons" src="/src/assets/address.svg" alt="" /> {address}</div>
                     </div>
                 </div>
-                <div className="education">
-                    {props.info.eduAugment.map(augment =>
-                        <Fragment key={augment["id"]}>
-                            <h1>{augment["School"]}</h1>
-                        </Fragment>
-                    )}
-                </div>
+                {props.info.eduAugment.length > 0 && (<div className="education sub">
+                    <div className="section">Education</div>
+                    <div className="augments">
+                        {props.info.eduAugment.map(augment =>
+                            <Fragment key={augment["id"]}>
+                                <div className="school">{augment["School"]}</div>
+                                <div className="field-of-study">{augment["Field of Study"]}</div>
+                                <div className="duration">{augment["Start Date"]} to {augment["End Date"]}</div>
+                            </Fragment>
+                        )}
+                    </div>
+                </div>)}
             </div>
             <button id="cv-btn" onClick={props.handleSwitch}>
                 Edit

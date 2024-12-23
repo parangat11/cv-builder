@@ -9,3 +9,19 @@
 .placard button {
     font-size: 1.5rem;
 }
+
+.placard img {
+    width: 35px;
+    padding: 5px;
+    height: auto;
+}
+
+.placard img:hover {
+    background-color: rgb(200, 251, 234);
+    border-radius: 12px;
+}
+
+.img-container {
+    display: flex;
+    gap: 20px;
+}
