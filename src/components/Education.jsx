@@ -39,9 +39,8 @@ export default function Education(props) {
                 {augmentables.map(augmentable => 
                     <ShowInfo handleDelete={handleDelete} handleEdit={handleEdit} key={augmentable.id} augmentable={augmentable} obj={obj} />
                 )}
-                <Augmentable changeAug={props.changeAug} obj={obj} toEdit={toEdit} setToEdit={setToEdit} info={props.info} association="school" work="fieldOfStudy" hasDescription={false} augmentables={augmentables} isOpen={isAddingInfo} toggleForm={setIsAddingInfo}/>
+                <Augmentable augType="eduAugment" changeAug={props.changeAug} obj={obj} toEdit={toEdit} setToEdit={setToEdit} info={props.info} association="school" work="fieldOfStudy" hasDescription={false} augmentables={augmentables} isOpen={isAddingInfo} toggleForm={setIsAddingInfo}/>
             </div>
-            
         </div>
     )
 }

@@ -13,7 +13,7 @@ const sampleObject = {
 
   eduAugment: [],
   skillsAugment: [],
-  
+  expAugment: [],
 }
 
 function App() {

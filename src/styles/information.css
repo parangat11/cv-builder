@@ -1,4 +1,5 @@
 .info-container {
+    min-width: 450px;
     padding: 40px;
     background-color: var(--form-theme);
     border-radius: 25px;

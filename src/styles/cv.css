@@ -5,6 +5,9 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(200, 251, 234);
+    --font-info: 1.6rem;
+    --font-content: 1.4rem;
+    --font-date: 1.2rem;
 }
 
 .cv {
@@ -66,7 +69,7 @@
 
 .education > .augments {
     display: grid;
-    font-size: 1.4rem;
+    font-size: var(--font-content);
     grid-template: 1fr 1fr / 3fr 1fr;
 }
 
@@ -78,5 +81,32 @@
 
 .school {
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: var(--font-info);
+}
+
+.skills > .augments {
+    display: grid;
+}
+
+li {
+    list-style: none;
+}
+
+.duration {
+    font-size: var(--font-date);
+}
+
+.skill-type, .company {
+    font-size: var(--font-info);
+    font-weight: bold;
+}
+
+.skill, .position {
+    font-size: var(--font-content);
+    padding-bottom: 10px;
+}
+
+
+.description {
+    font-size: var(--font-content);
 }

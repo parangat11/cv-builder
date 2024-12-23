@@ -29,7 +29,7 @@ export default function Augmentable(props) {
         }
         if(type==="save") {
             const newAugmentables = [...props.augmentables, newAugmentable];
-            props.changeAug("eduAugment", newAugmentables)
+            props.changeAug(props.augType, newAugmentables)
             props.setToEdit(null);
             setAugmentable({});
             props.toggleForm(!props.isOpen);
@@ -37,7 +37,7 @@ export default function Augmentable(props) {
         else {
             if(props.toEdit) {
                 const newAugmentables = [...props.augmentables, augmentable];
-                props.changeAug("eduAugment", newAugmentables)
+                props.changeAug(props.augType, newAugmentables)
                 props.setToEdit(null);
                 setAugmentable({});
             }
@@ -56,13 +56,20 @@ export default function Augmentable(props) {
                 <input type="text" onChange={handleFormChange} name="startDate" value={augmentable[props.obj.startDate] || ''} />
                 <label htmlFor="" >End Date</label>
                 <input type="text" onChange={handleFormChange} name="endDate" value={augmentable[props.obj.endDate] || ''} />
+                {
+                    props.hasDescription && 
+                    <>
+                        <label htmlFor="">Description</label>
+                        <textarea onChange={handleFormChange} value={augmentable[props.obj.description] || ''} name="description" id=""></textarea>
+                    </>
+                }
                 <div className="form-btns">
                     <button type="submit" onClick={(e) => handleChange(e, "save")}>Save</button>
                     <button type="generic" onClick={(e) => handleChange(e, "generic")}>Cancel</button>
                 </div>
             </form>
             :
-            <button onClick={handleAdding}>+ Education</button>
+            <button onClick={handleAdding}>+ Add</button>
         }
         </>
     )

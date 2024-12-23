@@ -23,14 +23,44 @@ export default function CV(props) {
                 </div>
                 {props.info.eduAugment.length > 0 && (<div className="education sub">
                     <div className="section">Education</div>
-                    <div className="augments">
                         {props.info.eduAugment.map(augment =>
-                            <Fragment key={augment["id"]}>
+                            <div className="augments">
                                 <div className="school">{augment["School"]}</div>
                                 <div className="field-of-study">{augment["Field of Study"]}</div>
                                 <div className="duration">{augment["Start Date"]} to {augment["End Date"]}</div>
-                            </Fragment>
+                            </div>
                         )}
+                </div>)}
+                {props.info.skillsAugment.length > 0 && (<div className="skills sub">
+                    <div className="section">Skills</div>
+                    <div className="augments">
+                    {props.info.skillsAugment.length > 0 &&
+                        <ul>
+                        {props.info.skillsAugment.map(augment =>
+                            <li key={augment["id"]}>
+                                <div className="skill-type">{augment["Skill Type"]}</div>
+                                <div className="skill">{augment["Skill"]}</div>
+                                <div className="description">{augment["Description"]}</div>
+                            </li>
+                        )}
+                        </ul> 
+                    }
+                    </div>
+                </div>)}
+                {props.info.expAugment.length > 0 && (<div className="experience sub">
+                    <div className="section">Experience</div>
+                    <div className="augments">
+                    {props.info.expAugment.length > 0 &&
+                        <ul>
+                        {props.info.expAugment.map(augment =>
+                            <li key={augment["id"]}>
+                                <div className="company">{augment["Company"]}</div>
+                                <div className="position">{augment["Position"]}</div>
+                                <div className="description">{augment["Description"]}</div>
+                            </li>
+                        )}
+                        </ul>
+                    }
                     </div>
                 </div>)}
             </div>
