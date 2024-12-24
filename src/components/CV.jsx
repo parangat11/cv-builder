@@ -1,5 +1,7 @@
-import { Fragment } from "react";
 import "../styles/cv.css"
+import mailIcon from "/src/assets/envelope-icon.svg"
+import phoneIcon from "/src/assets/phone-icon.svg"
+import locationIcon from "/src/assets/address.svg"
 
 export default function CV(props) {
     const firstName = props.info.firstName, lastName = props.info.lastName;
@@ -14,11 +16,11 @@ export default function CV(props) {
                 <div className="general-info">
                     <div className="person-name">{name}</div>
                     <div className="contact">
-                        <div className="mail"><img className="icons" src="/src/assets/envelope-icon.svg" alt="" /> {mail}</div>
+                        <div className="mail"><img className="icons" src={mailIcon} alt="" /> {mail}</div>
                         <div>|</div>
-                        <div className="phone-number"><img className="icons" src="/src/assets/phone-icon.svg" alt="" /> {phone}</div>
+                        <div className="phone-number"><img className="icons" src={phoneIcon} alt="" /> {phone}</div>
                         <div>|</div>
-                        <div className="address"><img className="icons" src="/src/assets/address.svg" alt="" /> {address}</div>
+                        <div className="address"><img className="icons" src={locationIcon} alt="" /> {address}</div>
                     </div>
                 </div>
                 {props.info.eduAugment.length > 0 && (<div className="education sub">
