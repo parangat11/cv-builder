@@ -25,8 +25,10 @@ export default function CV(props) {
                     <div className="section">Education</div>
                         {props.info.eduAugment.map(augment =>
                             <div className="augments">
+                                <div>
                                 <div className="school">{augment["School"]}</div>
                                 <div className="field-of-study">{augment["Field of Study"]}</div>
+                                </div>
                                 <div className="duration">{augment["Start Date"]} to {augment["End Date"]}</div>
                             </div>
                         )}
